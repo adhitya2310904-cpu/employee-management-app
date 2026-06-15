@@ -1,0 +1,41 @@
+<h1>Employee Management Dashboard</h1>
+
+<%= button_to "Logout",
+logout_path,
+method: :delete %>
+
+<br>
+
+<%= link_to "Add Employee", new_employee_path %>
+
+<br><br>
+
+<table border="1" cellpadding="10">
+
+<tr>
+  <th>ID</th>
+  <th>Name</th>
+  <th>Email</th>
+  <th>Department</th>
+  <th>Salary</th>
+</tr>
+
+<% @employees.each do |employee| %>
+
+<tr>
+
+  <td><%= employee.id %></td>
+
+  <td><%= employee.name %></td>
+
+  <td><%= employee.email %></td>
+
+  <td><%= employee.department %></td>
+
+  <td><%= employee.salary %></td>
+
+</tr>
+
+<% end %>
+
+</table>

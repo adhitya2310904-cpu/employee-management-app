@@ -1,0 +1,25 @@
+<h1>Employee Management Login</h1>
+
+<%= form_with url: login_path do |form| %>
+
+  <div>
+    <%= form.label :username %>
+    <%= form.text_field :username %>
+  </div>
+
+  <br>
+
+  <div>
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  </div>
+
+  <br>
+
+  <%= form.submit "Login" %>
+
+<% end %>
+
+<p style="color:red;">
+  <%= flash[:alert] %>
+</p>

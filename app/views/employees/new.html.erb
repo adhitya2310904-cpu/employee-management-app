@@ -1,0 +1,35 @@
+<h1>Add Employee</h1>
+
+<%= form_with model: @employee do |form| %>
+
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <br>
+
+  <div>
+    <%= form.label :email %>
+    <%= form.email_field :email %>
+  </div>
+
+  <br>
+
+  <div>
+    <%= form.label :department %>
+    <%= form.text_field :department %>
+  </div>
+
+  <br>
+
+  <div>
+    <%= form.label :salary %>
+    <%= form.number_field :salary %>
+  </div>
+
+  <br>
+
+  <%= form.submit "Create Employee" %>
+
+<% end %>
