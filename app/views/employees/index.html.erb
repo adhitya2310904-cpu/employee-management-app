@@ -1,41 +1,63 @@
-<h1>Employee Management Dashboard</h1>
+<div class="dashboard">
 
-<%= button_to "Logout",
-logout_path,
-method: :delete %>
+  <div class="sidebar">
 
-<br>
+    <h2>Employee Management</h2>
 
-<%= link_to "Add Employee", new_employee_path %>
+    <ul>
+      <li>
+        <%= link_to "Dashboard", employees_path %>
+      </li>
 
-<br><br>
+      <li>
+        <%= link_to "Add Employee", new_employee_path %>
+      </li>
 
-<table border="1" cellpadding="10">
+      <li>
+        <%= button_to "Logout",
+        logout_path,
+        method: :delete %>
+      </li>
+    </ul>
 
-<tr>
-  <th>ID</th>
-  <th>Name</th>
-  <th>Email</th>
-  <th>Department</th>
-  <th>Salary</th>
-</tr>
+  </div>
 
-<% @employees.each do |employee| %>
+  <div class="content">
 
-<tr>
+    <div class="header">
 
-  <td><%= employee.id %></td>
+      <h1>Employees</h1>
 
-  <td><%= employee.name %></td>
+      <%= link_to "Add Employee",
+      new_employee_path,
+      class:"add-btn" %>
 
-  <td><%= employee.email %></td>
+    </div>
 
-  <td><%= employee.department %></td>
+    <table>
 
-  <td><%= employee.salary %></td>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Department</th>
+        <th>Salary</th>
+      </tr>
 
-</tr>
+      <% @employees.each do |employee| %>
 
-<% end %>
+      <tr>
+        <td><%= employee.id %></td>
+        <td><%= employee.name %></td>
+        <td><%= employee.email %></td>
+        <td><%= employee.department %></td>
+        <td>₹<%= employee.salary %></td>
+      </tr>
 
-</table>
+      <% end %>
+
+    </table>
+
+  </div>
+
+</div>
