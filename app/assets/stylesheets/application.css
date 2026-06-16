@@ -141,11 +141,7 @@ table{
     box-shadow:0 2px 10px rgba(0,0,0,0.08);
 }
 
-th{
-    background:#1565d8;
-    color:white;
-    padding:15px;
-}
+
 
 td{
     padding:15px;
@@ -184,40 +180,9 @@ tr:hover{
     text-align:center;
 }
 
-.signup-btn{
-    display:block;
-    width:100%;
-    padding:12px;
-    background:#28a745;
-    color:white;
-    text-decoration:none;
-    border-radius:6px;
-    font-weight:bold;
-    box-sizing:border-box;
-}
 
-.signup-btn:hover{
-    background:#218838;
-}
 
-/* SIGNUP BUTTON */
 
-.signup-btn{
-    width:100%;
-    padding:12px;
-    margin-top:20px;
-    border:none;
-    border-radius:6px;
-    background:#1565d8;
-    color:white;
-    font-size:15px;
-    cursor:pointer;
-    transition:0.3s;
-}
-
-.signup-btn:hover{
-    background:#0d4fb3;
-}
 
 .login-link{
     text-align:center;
@@ -331,25 +296,143 @@ tr:hover{
     width:100%;
 }
 
-.logout-btn{
-    width:100%;
-
-    background:transparent;
-
-    border:1px solid rgba(255,255,255,0.3);
-
-    color:white;
-
-    padding:12px;
-
-    border-radius:8px;
-
-    cursor:pointer;
-
-    transition:0.3s;
-}
 .logout-btn:hover{
     background:rgba(255,255,255,0.1);
     border-color:white;
 }
+.action-buttons{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+}
 
+.edit-btn{
+    text-decoration:none;
+    font-size:20px;
+
+    padding:6px 10px;
+
+    border-radius:6px;
+
+    transition:0.3s;
+}
+
+.edit-btn:hover{
+    background:#dbeafe;
+}
+
+.delete-btn{
+    text-decoration:none;
+    font-size:20px;
+
+    padding:6px 10px;
+
+    border-radius:6px;
+
+    transition:0.3s;
+}
+
+.delete-btn:hover{
+    background:#fee2e2;
+}
+
+
+
+.action-buttons{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+}
+
+.employee-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+/* THIS FIXES YOUR HEADER ISSUE */
+.employee-table thead {
+    background: #1565d8;
+}
+
+.employee-table thead th {
+    color: white;
+    padding: 16px;
+    text-align: center;
+}
+
+/* Body */
+.employee-table td {
+    padding: 16px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+/* Row hover */
+.employee-table tbody tr:hover {
+    background: #f1f5ff;
+}
+
+.employee-table thead tr:hover {
+    background: #1565d8; /* keep header solid */
+}
+
+.action-buttons{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+}
+
+.table-container {
+    border-radius: 12px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.employee-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+.signup-btn:hover{
+    background:#15803d;
+}
+
+.login-btn,
+.signup-btn{
+    display:block;
+    width:100%;
+    padding:12px;
+
+    font-size:16px;        /* force same text size */
+    line-height:1.5;       /* normalize height */
+    text-align:center;
+
+    border-radius:6px;
+    border:none;
+
+    cursor:pointer;
+    box-sizing:border-box; /* important */
+}
+
+.login-btn{
+    background:#1565d8;
+    color:white;
+}
+
+.signup-btn{
+    background:#16a34a;
+    color:white;
+    text-decoration:none;   /* remove underline */
+}
+
+input.login-btn{
+    appearance:none;   /* removes browser default styling */
+}

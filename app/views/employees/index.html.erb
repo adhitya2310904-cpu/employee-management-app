@@ -34,29 +34,47 @@
 
     </div>
 
-    <table>
+  <div class="table-container">  
 
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Department</th>
-        <th>Salary</th>
-      </tr>
+  <table class="employee-table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Department</th>
+      <th>Salary</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
 
-      <% @employees.each do |employee| %>
-
+  <tbody>
+    <% @employees.each do |employee| %>
       <tr>
         <td><%= employee.id %></td>
         <td><%= employee.name %></td>
         <td><%= employee.email %></td>
         <td><%= employee.department %></td>
         <td>₹<%= employee.salary %></td>
+
+        <td>
+          <div class="action-buttons">
+            <%= link_to "✏️", edit_employee_path(employee), class: "edit-btn" %>
+
+            <%= link_to "🗑️",
+                employee_path(employee),
+                data: {
+                  turbo_method: :delete,
+                  turbo_confirm: "Are you sure?"
+                },
+                class: "delete-btn" %>
+          </div>
+        </td>
       </tr>
-
-      <% end %>
-
-    </table>
+    <% end %>
+  </tbody>
+</table>
+</div>
 
   </div>
 </div>

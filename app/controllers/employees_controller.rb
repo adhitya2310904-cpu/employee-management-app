@@ -20,6 +20,34 @@ class EmployeesController < ApplicationController
     end
   end
 
+  def edit
+  @employee = Employee.find(params[:id])
+end
+
+def update
+
+  @employee = Employee.find(params[:id])
+
+  if @employee.update(employee_params)
+    redirect_to employees_path,
+    notice: "Employee updated successfully."
+  else
+    render :edit
+  end
+
+end
+
+def destroy
+
+  @employee = Employee.find(params[:id])
+
+  @employee.destroy
+
+  redirect_to employees_path,
+  notice: "Employee deleted successfully."
+
+end
+
   private
 
   def employee_params
