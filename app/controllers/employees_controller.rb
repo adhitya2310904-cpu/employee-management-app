@@ -1,6 +1,6 @@
 class EmployeesController < ApplicationController
 
-  before_action :authorize_user
+  before_action :authenticate_user!
 
   def index
     @employees = Employee.all
@@ -25,10 +25,6 @@ class EmployeesController < ApplicationController
   def employee_params
     params.require(:employee)
           .permit(:name, :email, :department, :salary)
-  end
-
-  def authorize_user
-    redirect_to login_path unless session[:user_id]
   end
 
 end
