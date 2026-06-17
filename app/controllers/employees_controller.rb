@@ -3,7 +3,14 @@ class EmployeesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @employees = Employee.all
+    if params[:search].present?
+      @employees = Employee.where(
+        "LOWER(name) LIKE ?",
+        "%#{params[:search].downcase}%"
+      )
+    else
+      @employees = Employee.all
+    end
   end
 
   def new
@@ -21,38 +28,35 @@ class EmployeesController < ApplicationController
   end
 
   def edit
-  @employee = Employee.find(params[:id])
-end
-
-def update
-
-  @employee = Employee.find(params[:id])
-
-  if @employee.update(employee_params)
-    redirect_to employees_path,
-    notice: "Employee updated successfully."
-  else
-    render :edit
+    @employee = Employee.find(params[:id])
   end
 
-end
+  def update
+    @employee = Employee.find(params[:id])
 
-def destroy
+    if @employee.update(employee_params)
+      redirect_to employees_path
+    else
+      render :edit
+    end
+  end
 
-  @employee = Employee.find(params[:id])
+  def destroy
+    @employee = Employee.find(params[:id])
+    @employee.destroy
 
-  @employee.destroy
-
-  redirect_to employees_path,
-  notice: "Employee deleted successfully."
-
-end
+    redirect_to employees_path
+  end
 
   private
 
   def employee_params
-    params.require(:employee)
-          .permit(:name, :email, :department, :salary)
+    params.require(:employee).permit(
+      :name,
+      :email,
+      :department,
+      :salary
+    )
   end
 
 end
