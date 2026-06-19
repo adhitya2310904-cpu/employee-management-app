@@ -1,0 +1,103 @@
+<div class="content">
+
+  <div class="header-section">
+
+    <h1>Leave Management</h1>
+
+    <div class="header-actions">
+      <%= link_to "Apply Leave",
+                  new_leave_request_path,
+                  class: "add-btn" %>
+    </div>
+
+  </div>
+
+  <div class="table-container">
+
+    <table>
+
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Employee</th>
+          <th>Leave Type</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Status</th>
+          <th class="actions-column">Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <% @leave_requests.each do |leave| %>
+
+          <tr>
+
+            <td><%= leave.id %></td>
+
+            <td><%= leave.employee.name %></td>
+
+            <td><%= leave.leave_type %></td>
+
+            <td><%= leave.start_date %></td>
+
+            <td><%= leave.end_date %></td>
+
+            <td>
+              <% if leave.status == "Approved" %>
+                <span class="status-approved">
+                  Approved
+                </span>
+
+              <% elsif leave.status == "Rejected" %>
+                <span class="status-rejected">
+                  Rejected
+                </span>
+
+              <% else %>
+                <span class="status-pending">
+                  Pending
+                </span>
+              <% end %>
+            </td>
+
+            <td>
+
+              <% if leave.status == "Pending" %>
+
+                <div class="action-buttons">
+
+                  <%= button_to "Approve",
+                                approve_leave_request_path(leave),
+                                method: :patch,
+                                class: "approve-btn" %>
+
+                  <%= button_to "Reject",
+                                reject_leave_request_path(leave),
+                                method: :patch,
+                                class: "reject-btn" %>
+
+                </div>
+
+              <% else %>
+
+                <span class="completed-text">
+                  Action Taken
+                </span>
+
+              <% end %>
+
+            </td>
+
+          </tr>
+
+        <% end %>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>

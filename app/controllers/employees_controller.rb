@@ -18,14 +18,23 @@ class EmployeesController < ApplicationController
   end
 
   def create
-    @employee = Employee.new(employee_params)
 
-    if @employee.save
-      redirect_to employees_path
-    else
-      render :new
-    end
+  @employee = Employee.new(employee_params)
+
+  if @employee.save
+    EmployeeMailer
+        .welcome_email(@employee)
+        .deliver_later
+
+    redirect_to employees_path
+
+  else
+
+    render :new
+
   end
+
+end
 
   def edit
     @employee = Employee.find(params[:id])

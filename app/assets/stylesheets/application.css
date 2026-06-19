@@ -489,3 +489,150 @@ input.login-btn{
 .search-btn:hover{
     background:#1d4ed8;
 }
+
+.page-card{
+    background:white;
+    padding:40px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+.table-container{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+.save-btn{
+    background:#16a34a;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:8px;
+}
+.approve-btn{
+    background:#16a34a;
+    color:white;
+    border:none;
+    padding:8px 14px;
+    border-radius:6px;
+}
+.reject-btn{
+    background:#dc2626;
+    color:white;
+    border:none;
+    padding:8px 14px;
+    border-radius:6px;
+}
+.stats-card{
+    background:white;
+    padding:20px;
+    margin-bottom:20px;
+    border-radius:12px;
+}
+.report-card{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    margin-bottom:15px;
+}
+
+.content{
+    padding:40px;
+}
+
+.page-subtitle{
+    color:#6b7280;
+    margin-bottom:25px;
+}
+
+.form-group{
+    margin-bottom:20px;
+}
+
+.form-group label{
+    display:block;
+    font-weight:600;
+    margin-bottom:8px;
+}
+
+.form-control{
+    width:100%;
+    padding:12px 15px;
+    border:1px solid #d1d5db;
+    border-radius:8px;
+    font-size:15px;
+    box-sizing:border-box;
+}
+
+.form-control:focus{
+    outline:none;
+    border-color:#2563eb;
+}
+
+.textarea{
+    min-height:120px;
+    resize:vertical;
+}
+
+.button-group{
+    display:flex;
+    gap:12px;
+    margin-top:25px;
+}
+
+.cancel-btn{
+    background:#e5e7eb;
+    color:#111827;
+    padding:12px 25px;
+    border-radius:8px;
+    text-decoration:none;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+thead{
+    background:#2563eb;
+    color:white;
+}
+
+th,
+td{
+    padding:16px;
+    text-align:left;
+}
+
+tbody tr{
+    border-bottom:1px solid #e5e7eb;
+}
+
+.actions-column{
+    width:220px;
+}
+
+.action-buttons{
+    display:flex;
+    gap:10px;
+}
+
+.status-approved{
+    color:#16a34a;
+    font-weight:600;
+}
+
+.status-rejected{
+    color:#dc2626;
+    font-weight:600;
+}
+
+.status-pending{
+    color:#d97706;
+    font-weight:600;
+}
+
+.completed-text{
+    color:#6b7280;
+    font-size:14px;
+}
