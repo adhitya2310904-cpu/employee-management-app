@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   devise_for :users
 
   root "employees#index"
+  get "employee_dashboard",
+    to: "leave_requests#index"
 
   resources :employees
 
@@ -12,5 +14,7 @@ Rails.application.routes.draw do
       patch :reject
     end
   end
+  resource :profile,
+         only: [:show]
 
 end

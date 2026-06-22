@@ -1,0 +1,46 @@
+<div class="profile-page">
+
+  <div class="profile-card">
+
+    <div class="profile-header">
+
+      <% if @employee.profile_picture.attached? %>
+        <%= image_tag @employee.profile_picture,
+            class: "profile-image" %>
+      <% else %>
+        <%= image_tag "default-avatar.png",
+            class: "profile-image" %>
+      <% end %>
+
+      <div>
+        <h1><%= @employee.name %></h1>
+        <p><%= @employee.email %></p>
+      </div>
+
+    </div>
+
+    <div class="profile-details">
+
+      <div class="detail-box">
+        <h3>Department</h3>
+        <p><%= @employee.department %></p>
+      </div>
+
+      <div class="detail-box">
+        <h3>Salary</h3>
+        <p>₹<%= number_with_delimiter(@employee.salary) %></p>
+      </div>
+
+      <div class="detail-box">
+        <h3>Leave Balance</h3>
+        <span class="leave-badge">
+          <%= @employee.leave_balance %> Days
+        </span>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+</div>

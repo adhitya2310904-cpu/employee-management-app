@@ -1,6 +1,7 @@
 class EmployeesController < ApplicationController
 
   before_action :authenticate_user!
+  before_action :require_admin
 
   def index
     if params[:search].present?
@@ -56,6 +57,8 @@ end
 
     redirect_to employees_path
   end
+  
+ 
 
   private
 
@@ -64,8 +67,15 @@ end
       :name,
       :email,
       :department,
-      :salary
+      :salary,
+      :profile_picture
     )
   end
 
+  def require_admin
+  unless current_user.admin?
+    redirect_to employee_dashboard_path,
+                alert: "Access Denied"
+  end
+end
 end
